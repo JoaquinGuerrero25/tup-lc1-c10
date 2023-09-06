@@ -3,10 +3,10 @@
 #include <stdlib.h>
 
 void main() {
-    int numero_mes;
-    printf("Ingrese un número del 1 al 12: ");
-    scanf("%d", &numero_mes);
-    switch (numero_mes) {
+    int num_mes;
+    printf("Ingrese un numero del 1 al 12: ");
+    scanf("%d", &num_mes);
+    switch (num_mes) {
         case 1:
             printf("Enero\n");
             break;
@@ -44,7 +44,7 @@ void main() {
             printf("Diciembre\n");
             break;
         default:
-            printf("Número fuera del rango válido\n");
+            printf("Numero fuera del rango valido\n");
             break;
     }
     system("pause");
