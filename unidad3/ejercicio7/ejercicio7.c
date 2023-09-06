@@ -6,11 +6,11 @@
 
 void main() {
     float valorVenta, descuento, resultado;
-    printf("Ingrese el monto de la venta: ");
+    printf("Ingrese el valor de la venta: ");
     scanf("%f", &valorVenta);
 
     if (valorVenta <= 0) {
-        printf("El monto ingresado es incorrecto.\n");
+        printf("El valor ingresado es incorrecto.\n");
     }
     else if (valorVenta >= 100000) {
         descuento = valorVenta * 0.15;
