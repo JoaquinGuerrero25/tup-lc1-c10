@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main () {
+void main() {
     float saldo, retiro;
     saldo = 1000000;
     printf("Ingrese el saldo a retirar: ");
@@ -15,5 +15,4 @@ int main () {
         printf("Saldo insuficiente.\n");
     }
     system("pause");
-    return 0;
 }

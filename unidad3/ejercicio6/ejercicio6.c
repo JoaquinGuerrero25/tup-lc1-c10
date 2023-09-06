@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int main () {
+void main() {
     float nota;
     printf("Ingrese la nota del alumno: ");
     scanf("%f", &nota);
@@ -22,5 +22,4 @@ int main () {
         printf("El alumno promociono la materia.\n");
     }
     system("pause");
-    return 0;
 }

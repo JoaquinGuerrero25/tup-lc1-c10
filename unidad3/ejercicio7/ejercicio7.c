@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int main () {
+void main() {
     float valorVenta, descuento, resultado;
     printf("Ingrese el monto de la venta: ");
     scanf("%f", &valorVenta);
@@ -24,5 +24,4 @@ int main () {
     }
     
     system("pause");
-    return 0;
 }
