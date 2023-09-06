@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int main () {
+void main () {
     int num;
     printf("Ingrese un numero: ");
     scanf("%i", &num);
@@ -13,5 +13,4 @@ int main () {
         printf("El numero es impar.\n");
     }
     system("pause");
-    return 0;
 }
