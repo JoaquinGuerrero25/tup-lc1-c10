@@ -6,9 +6,9 @@
 #include <stdlib.h>
 
 void main() {
-    float altura;
-    printf("Ingrese la altura en centímetros: ");
-    scanf("%f", &altura);
+    int altura;
+    printf("Ingrese la altura en centimetros: ");
+    scanf("%i", &altura);
     if (altura <= 150) {
         printf("Persona de altura por debajo de la media\n");
     } 
