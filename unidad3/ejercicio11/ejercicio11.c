@@ -14,17 +14,17 @@
 void main() {
     float num1, num2;
     int opcion;
-    printf("Ingrese el primer número: ");
+    printf("Ingrese el primer numero: ");
     scanf("%f", &num1);
-    printf("Ingrese el segundo número: ");
+    printf("Ingrese el segundo numero: ");
     scanf("%f", &num2);
-    printf("\nMenú de Operaciones:\n");
+    printf("\nMenu de Operaciones:\n");
     printf("1. Sumar\n");
     printf("2. Restar\n");
     printf("3. Multiplicar\n");
     printf("4. Dividir\n");
     printf("5. Salir\n");
-    printf("Seleccione una operación: ");
+    printf("Seleccione una operacion: ");
     scanf("%d", &opcion);
     switch (opcion)
     {
@@ -35,20 +35,20 @@ void main() {
             printf("Resultado de la resta: %.2f\n", num1 - num2);
              break;
         case 3:
-            printf("Resultado de la multiplicación: %.2f\n", num1 * num2);
+            printf("Resultado de la multiplicacion: %.2f\n", num1 * num2);
             break;
         case 4:
             if (num2 != 0) {
-                printf("Resultado de la división: %.2f\n", num1 / num2);
+                printf("Resultado de la division: %.2f\n", num1 / num2);
             } 
             else {
                 printf("Error: No se puede dividir por cero.\n");
             }
         case 5:
-            printf("Saliendo del programa. ¡Adiós!\n");
+            printf("Saliendo del programa. ¡Adios!\n");
             break;
     default:
-        printf("Opción no válida. Por favor, seleccione una opción válida del menú.\n");
+        printf("Opcion no válida. Por favor, seleccione una opcion válida del menu.\n");
         break;
     }
     system("pause");
