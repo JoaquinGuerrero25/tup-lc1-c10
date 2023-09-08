@@ -60,8 +60,25 @@ void main() {
             default:
                 printf("Opción de medio de pago no válida.\n");
         }
-
-                                                                                // TERMINAR
-
+        printf("DNI: %d\n", Dni);
+        printf("Medio de pago: ");
+        if (opcionPago == 1) {
+            printf("Efectivo\n");
+        } else if (opcionPago == 2) {
+            printf("Tarjeta de crédito\n");
+            printf("Tarjeta: ");
+            if (opcionTarjeta == 1) {
+                printf("Visa\n");
+            } else if (opcionTarjeta == 2) {
+                printf("American Express\n");
+            } else if (opcionTarjeta == 3) {
+                printf("Mercado Pago\n");
+            } else if (opcionTarjeta == 4) {
+                printf("Cabal\n");
+            }
+            printf("Cuotas: %d\n", cantCuotas);
+        }
+        printf("Total: $%.2f\n", total);
     }
+    system("pasuse");
 }
