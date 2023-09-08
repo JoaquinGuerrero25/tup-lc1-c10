@@ -43,7 +43,11 @@ void main() {
                 printf("Ingrese la cantidad de cuotas (1, 3, 6 o 12): ");
                 scanf("%i", &cantCuotas);
 
-                if (cantCuotas == 1) {
+                if(cantCuotas != 1 && cantCuotas !=3  && cantCuotas != 6 && cantCuotas != 12) {
+                    printf("la cantidad de cutas seleccionda es incoreccta.\n");
+                    return;
+                }
+                else if(cantCuotas == 1) {
                     total = 4600;
                 } 
                 else if (cantCuotas == 3) {
@@ -80,5 +84,5 @@ void main() {
         }
         printf("Total: $%.2f\n", total);
     }
-    system("pasuse");
+    system("pause");
 }
