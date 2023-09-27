@@ -20,82 +20,130 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
-    int cantVentas, i, Dni, medioPago, opcionTarjeta, cantCuotas;
-    float montoVenta, montoFinal, total, montoTotal;
-    total = 0;
-    montoTotal = 0;
+void main()
+{
+    int cantVentas = 0;
+    int dniCliente = 0;
+    int metodoPago = 0;
+    int cantCuotas = 0;
+    int opcionTarjeta = 0;
+    float montoVenta = 0;
+    float montoFinalVenta = 0;
+    float montoTotalTodasLasVentas = 0;
 
-    printf("Ingrese la cantidad de ventas a registrar: ");
-    scanf("%i", &cantVentas);
-
-    for (i = 1; i <= cantVentas; i++) {
-        printf("Ingrese el DNI del empleado %i: ", i);
-        scanf("%i", &Dni);
-
-        if (Dni < 1000000 || Dni > 99999999) {
-            printf("El Dni ingresado es incorrecto.\n");
-            continue;
+    do
+    {
+        printf("Ingrese la cantidad de ventas a registrar: ");
+        scanf("%i", &cantVentas);
+        if (cantVentas < 1)
+        {
+            printf("La cantidad de ventas a registrar debe ser igual o mayor a 1.\n");
         }
+    } while (cantVentas < 1);
 
-        printf("Ingrese el monto de la venta: ");
-        scanf("%f", &montoVenta);
-        
-        printf("Como desea pagar?\n 1- Efectivo\n 2- Tarjeta de credito\n");
-        scanf("%i", &medioPago);
+    for (int i = 1; i <= cantVentas; i++)
+    {
+        do
+        {
+            printf("Ingrese el DNI del cliente %i: ", i);
+            scanf("%i", &dniCliente);
+            if (dniCliente < 1000000 || dniCliente > 99999999)
+            {
+                printf("El DNI ingresado es incorrecto.\n");
+            }
+        } while (dniCliente < 1000000 || dniCliente > 99999999);
 
-        switch (medioPago) {
-            case 1:
-                total = montoVenta;
-                break;
-            case 2:
-                printf("Ingrese una opcion:\n 1-Visa\n 2-American Express\n 3-Mercado Pago\n 4-Cabal\n ");
+        do
+        {
+            printf("Ingresa el monto de la venta: ");
+            scanf("%f", &montoVenta);
+            if (montoVenta < 1)
+            {
+                printf("El monto ingresado es incorrecto.\n");
+            }
+        } while (montoVenta < 1);
+
+        do
+        {
+            printf("Metodo de pago:\n1- Efectivo\n2- Tarjeta de credito\n");
+            printf("Ingrese el metodo de pago: ");
+            scanf("%i", &metodoPago);
+            if (metodoPago != 1 && metodoPago != 2)
+            {
+                printf("El metodo ingresado es incorrecto.\n");
+            }
+        } while (metodoPago != 1 && metodoPago != 2);
+
+        switch (metodoPago)
+        {
+        case 1:
+            montoFinalVenta = montoVenta;
+            break;
+        case 2:
+            printf("Opcion de tarjetas\n1- Visa\n2- American Express\n3- Mercado Pago\n4- Cabal\n");
+            printf("Ingrese la opcion con la que desea pagar: ");
+            scanf("%i", &opcionTarjeta);
+            while (opcionTarjeta < 1 || opcionTarjeta > 4)
+            {
+                printf("La opcion ingresada es incorrecta.\nPor favor vuelva a ingresar una opcion de 1 a 4: ");
                 scanf("%i", &opcionTarjeta);
-                printf("Ingrese la cantidad de cuotas (1, 3, 6 o 12): ");
+            }
+
+            do
+            {
+                printf("Ingrese la cantidad de cuotas(1, 3, 6, 12): ");
                 scanf("%i", &cantCuotas);
-
-                if (cantCuotas != 1 && cantCuotas != 3 && cantCuotas != 6 && cantCuotas != 12) {
-                    printf("La cantidad de cuotas seleccionada es incorrecta.\n");
-                    continue;
+                if (cantCuotas != 1 && cantCuotas != 3 && cantCuotas != 6 && cantCuotas != 12)
+                {
+                    printf("La cantidad de cuotas seleccionadas es incorrecta.\n");
                 }
+            } while (cantCuotas != 1 && cantCuotas != 3 && cantCuotas != 6 && cantCuotas != 12);
 
-                if (cantCuotas == 1) {
-                    total = montoVenta;
-                } else if (cantCuotas == 3) {
-                    total = montoVenta + montoVenta * 0.04;
-                } else if (cantCuotas == 6 || cantCuotas == 12) {
-                    total = montoVenta + montoVenta * 0.08;
-                }
-
+            switch (cantCuotas)
+            {
+            case 1:
+                montoFinalVenta = montoVenta;
+                break;
+            case 3:
+                montoFinalVenta = montoVenta + (montoVenta * 0.4);
                 break;
             default:
-                printf("Opción de medio de pago no válida.\n");
-                continue; 
-        }
-
-        printf("DNI: %d\n", Dni);
-        printf("Medio de pago: ");
-        if (medioPago == 1) {
-            printf("Efectivo\n");
-        } else if (medioPago == 2) {
-            printf("Tarjeta de crédito\n");
-            printf("Tarjeta: ");
-            if (opcionTarjeta == 1) {
-                printf("Visa\n");
-            } else if (opcionTarjeta == 2) {
-                printf("American Express\n");
-            } else if (opcionTarjeta == 3) {
-                printf("Mercado Pago\n");
-            } else if (opcionTarjeta == 4) {
-                printf("Cabal\n");
+                montoFinalVenta = montoVenta + (montoVenta * 0.8);
+                break;
             }
-            printf("Cuotas: %d\n", cantCuotas);
+        default:
+            break;
         }
-        printf("Total: $%.2f\n", total);
-        montoTotal += total;
+
+        printf("Resumen venta\n");
+        printf("DNI: %i\n", dniCliente);
+        if (metodoPago == 1)
+        {
+            printf("Metodo de pago: Efectivo\n");
+        }
+        else
+        {
+            printf("Metodo de pago: Tarjeta de credito\n");
+        }
+        if (opcionTarjeta == 1)
+        {
+            printf("Tarjeta: Visa\n");
+        }
+        else if (opcionTarjeta == 2)
+        {
+            printf("Tarjeta: American Express\n");
+        }
+        else if (opcionTarjeta == 2)
+        {
+            printf("Tarjeta: Mercado Pago\n");
+        }
+        else if (opcionTarjeta == 2)
+        {
+            printf("Tarjeta: Cabal\n");
+        }
+        printf("Cuotas: %i\n", cantCuotas);
+        printf("Total: %f\n", montoFinalVenta);
+        montoTotalTodasLasVentas += montoFinalVenta;
     }
-
-    printf("Suma total de las ventas ingresadas: $%.2f\n", montoTotal);
-
-    return 0;
+    printf("El monto total de todas las ventas es: %i\n", montoTotalTodasLasVentas);
 }
